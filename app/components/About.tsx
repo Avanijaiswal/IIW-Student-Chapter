@@ -43,7 +43,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <h2 className="text-5xl font-bold text-center text-white mb-16 tracking-tight">
-          About IIW Student Chapter
+          About MU-IIW Student Chapter
         </h2>
 
         {/* Cards Container */}

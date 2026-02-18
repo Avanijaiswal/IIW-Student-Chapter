@@ -43,7 +43,7 @@ const Navbar = () => {
           
           {/* Action Button */}
           <button className="px-6 py-2 bg-[#FF3131] text-white rounded-full text-xs font-bold hover:bg-red-700 transition-all">
-            JOIN
+            EVENTS
           </button>
         </div>
 
