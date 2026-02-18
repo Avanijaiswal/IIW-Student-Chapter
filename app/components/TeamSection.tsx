@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
 
-const categories = ["Chairman", "Lead", "Secretary", "Treasurer", "Technical"];
+const categories = ["Chairman", "Lead", "Technical", "Management"];
 
 // FIX: Ensure every value here is an Array [ ... ], even if it has only one person.
 const teamData: any = {
@@ -11,7 +11,7 @@ const teamData: any = {
     {
       name: "Dr. Gaurang Rajendraprasad Joshi",
       role: "Chairman",
-      image: "/team/cm.jpg",
+      image: "/team/cm.jpeg",
     },
   ],
   Lead: [
@@ -23,40 +23,43 @@ const teamData: any = {
     {
       name: "Thun Thingyan Oo",
       role: "Vice President",
-      image: "/team/lead2.jpg",
-    },
-  ],
-  Secretary: [
-    {
-      name: "Khushal Joshi",
-      role: "Secretary",
-      image: "/team/secretary.jpg",
-    },
-  ],
-  Treasurer: [
-    {
-      name: "Kshitiz Sawarnn",
-      role: "Treasurer",
-      image: "/team/treasurer.jpg",
+      image: "/team/lead2.jpeg",
     },
   ],
   Technical: [
     {
       name: "Aditya Prajkash Yallamelli",
       role: "Technical",
-      image: "/team/tech1.jpg",
+      image: "/team/tech1.jpeg",
     },
     {
       name: "Akambareshwar Neela",
       role: "Technical",
-      image: "/team/tech2.jpg",
+      image: "/team/tech2.jpeg",
     },
     {
       name: "Arsh Yadav",
       role: "Technical", 
-      image: "/team/tech3.jpg",
+      image: "/team/tech3.jpeg",
     },
   ],
+  Management: [
+    {
+      name: "Khushal Joshi",
+      role: "Secretary",
+      image: "/team/secretary.jpeg"
+    },
+    {
+      name: "Kshitiz Sawarnn",
+      role: "Treasurer",
+      image: "/team/treasurer.jpeg",
+    },
+    {
+      name: "Rao Vishal Singh",
+      role: "Conveyor",
+      image: "/team/conv.jpeg"
+    }
+  ]
 };
 
 export default function TeamSection() {

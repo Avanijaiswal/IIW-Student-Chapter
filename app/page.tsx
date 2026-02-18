@@ -51,76 +51,50 @@ document.documentElement.style.setProperty(
         {/* NAVBAR - Glass Effect */}
         
             {/* REVRAGE STYLE NAVBAR */}
-       <nav className="fixed w-full top-0 left-0 z-50 bg-white/5 backdrop-blur-md border-b border-white/10">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1 text-xl font-black tracking-tighter uppercase">
-              <span>IIW</span>
-              <span className="text-[#E32626]">Student Chapter</span>
-            </div>
-            <span className="text-[10px] text-white tracking-[0.2em] uppercase font-bold leading-tight">
-              Marwadi University
-            </span>
-          </div>
-            <div className="space-x-8 hidden md:flex">
-              <a href="#" className="hover:text-gray-400 transition">About</a>
-              <a href="#" className="hover:text-gray-400 transition">Events</a>
-              <a href="#" className="hover:text-gray-400 transition">Team</a>
-              <a href="#" className="hover:text-gray-400 transition">Contact</a>
-            </div>
-            </div>
-        </nav>
-
+      
         
 {/* HERO */}
-<section className="relative min-h-screen flex items-center overflow-hidden bg-black px-16">
+{/* HERO - Background set to transparent to show global background */}
+<section className="relative min-h-screen flex items-center overflow-hidden px-16 bg-transparent">
 
-  {/* Deep red gradient background */}
-  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,#3b0000,transparent_60%)]" />
+  {/* 1. REMOVED the deep red/black radial gradient div that was blocking the view */}
 
-  {/* Subtle grid overlay */}
-  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.04)_1px,transparent_1px)] bg-[size:60px_60px]" />
+  {/* 2. Subtle grid overlay - optional, kept low opacity so it doesn't block background */}
+  <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
 
-  <div className="relative z-10">
+  <div className="relative z-10 w-full">
+    {/* Mouse Follow Glow Effect */}
     <div
-  className="pointer-events-none absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-30"
-  style={{
-    background:
-      "radial-gradient(circle at center, rgba(255,0,0,0.6) 0%, transparent 70%)",
-    left: "var(--mouse-x)",
-    top: "var(--mouse-y)",
-    transform: "translate(-50%, -50%)",
-  }}
-/>
-
+      className="pointer-events-none absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-20"
+      style={{
+        background: "radial-gradient(circle at center, rgba(255,0,0,0.4) 0%, transparent 70%)",
+        left: "var(--mouse-x)",
+        top: "var(--mouse-y)",
+        transform: "translate(-50%, -50%)",
+      }}
+    />
 
     <h1 className="font-[var(--font-antonio)] uppercase leading-[0.8] select-none">
+      <span
+        className="block text-[120px] md:text-[200px] lg:text-[250px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 hover:drop-shadow-[0_0_50px_rgba(255,0,0,0.6)]"
+        style={{ transform: "scaleY(0.85)" }}
+      >
+        LIMITLESS
+      </span>
 
-  <span
-    className="block text-[180px] md:text-[300px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text animate-slideLeft transition-all duration-300 hover:drop-shadow-[0_0_90px_rgba(255,0,0,0.9)]"
-    style={{ transform: "scaleY(0.80)" }}
-  >
-    LIMITLESS
-  </span>
+      <span
+        className="block text-[120px] md:text-[200px] lg:text-[250px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 hover:drop-shadow-[0_0_60px_rgba(255,0,0,0.7)]"
+        style={{ transform: "scaleY(0.85)" }}
+      >
+        ENGINEER
+      </span>
+    </h1>
 
-  <span
-    className="block text-[180px] md:text-[300px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text animate-slideLeft delay-200 transition-all duration-300 hover:drop-shadow-[0_0_110px_rgba(255,0,0,1)]"
-    style={{ transform: "scaleY(0.80)" }}
-  >
-    ENGINEER
-  </span>
-
-</h1>
-
-
-
-
-
-    <p className="mt-10 text-gray-400 text-lg max-w-xl">
+    <p className="mt-6 text-gray-400 text-lg max-w-xl font-medium">
       The official off-road racing division of Marwadi University.
-      We don't just build cars; we engineer performance.
+      <br />
+      <span className="text-gray-500">We don't just build cars; we engineer performance.</span>
     </p>
-
   </div>
 </section>
 
