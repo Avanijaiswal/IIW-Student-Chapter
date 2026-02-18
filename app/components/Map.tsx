@@ -13,25 +13,27 @@ function ZoomHandler({ position }: { position: [number, number] }) {
 }
 
 const Map = () => {
-  const position: [number, number] = [22.3653, 70.7969]; 
+  const position: [number, number] = [22.367824, 70.797342]; 
 
   return (
-    // @ts-ignore - Fixes Vercel Build Error
-    <MapContainer 
-      center={position} 
-      zoom={15} 
-      scrollWheelZoom={false} 
-      className="h-full w-full rounded-[30px]"
-    >
-      <TileLayer
-        attribution='&copy; Esri'
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-      />
-      <ZoomHandler position={position} />
-      <Marker position={position}>
-        <Popup>MU-IIW Student Chapter</Popup>
-      </Marker>
-    </MapContainer>
+    <div className="h-full w-full">
+      {/* @ts-ignore */}
+      <MapContainer 
+        center={position} 
+        zoom={15} 
+        scrollWheelZoom={false} 
+        className="h-full w-full rounded-[30px]"
+      >
+        <TileLayer
+          attribution='&copy; Esri'
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+        />
+        <ZoomHandler position={position} />
+        <Marker position={position}>
+          <Popup>MU-IIW Student Chapter</Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
 };
 
