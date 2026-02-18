@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import TeamSection from "./components/TeamSection";
 import CursorGlow from "./components/CursorGlow";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Target, Eye, ShieldCheck, Users, Calendar } from 'lucide-react';
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -90,60 +91,74 @@ document.documentElement.style.setProperty(
       </span>
     </h1>
 
-    <p className="mt-6 text-gray-400 text-lg max-w-xl font-medium">
-      The official off-road racing division of Marwadi University.
-      <br />
-      <span className="text-gray-500">We don't just build cars; we engineer performance.</span>
-    </p>
   </div>
 </section>
 
 
 
         {/* ABOUT - Glass Effect */}
-        <section className="py-24 px-6">
-          <div className="max-w-5xl mx-auto text-center bg-white/5 backdrop-blur-lg border border-white/10 p-10 rounded-3xl">
-            <h2 className="text-4xl font-bold">About Chapter</h2>
-            <p className="mt-6 text-gray-300 text-lg">
-              IIW Student Chapter helps students explore technology through workshops, hackathons, and real-world projects.
-            </p>
-          </div>
-        </section>
+      {/* NEW ABOUT SECTION - White Card Style */}
+        <section id="about" className="py-24 px-6 bg-transparent">
+          <div className="max-w-7.2xl mx-auto">
+            {/* Title */}
+            <h2 className="text-5xl font-bold text-center text-white mb-16 tracking-tight">
+              About IIW Student Chapter
+            </h2>
 
-        {/* FEATURES - Glass Cards */}
-        <section className="py-32 px-6">
-          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-16 text-center">
-            {/* Manual Card 1 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              className="bg-white/5 backdrop-blur-md p-12 rounded-2xl border border-white/10"
-            >
-              <h3 className="text-xl font-semibold">Workshops</h3>
-              <p className="mt-4 text-gray-400">Learn modern technologies with hands-on sessions.</p>
-            </motion.div>
+            {/* Cards Container */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-9">
+              {[
+                {
+                  title: "Our Mission",
+                  desc: "Empowering students with technical mastery, innovation, and industry-ready skills.",
+                  icon: <Target className="w-9 h-9 text-black" />, // Refined stroke icon                
+                },
+                {
+                  title: "Our Vision",
+                  desc: "To be a global center of excellence for sustainable engineering leadership.",
+                  icon: <Eye className="w-9 h-9 text-black" />,
+                },
+                {
+                  title: "Our Values",
+                  desc: "Excellence, innovation, sustainability, collaboration, and professional integrity.",
+                  icon: <ShieldCheck className="w-9 h-9 text-black" />,
+                },
+                {
+                  title: "Our Community",
+                  desc: "A vibrant group of dreamers and doers united by innovation, creativity, and teamwork.",
+                  icon: <Users className="w-9 h-9 text-black" />,
+                },
+                {
+                  title: "Our Events",
+                  desc: "Hands-on workshops, hackathons, and sessions that turn ideas into real-world impact.",
+                  icon: <Calendar className="w-9 h-9 text-black" />,
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-[40px] p-8 flex flex-col items-center text-center shadow-xl hover:scale-105 transition-transform"
+                >
+                  {/* Icon Placeholder - You can replace these with <img /> or Lucide icons */}
+                  <div className="text-4xl mb-6 grayscale text-black">
+                    {item.icon}
+                  </div>
 
-            {/* Manual Card 2 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.2 }}
-              className="bg-white/5 backdrop-blur-md p-12 rounded-2xl border border-white/10"
-            >
-              <h3 className="text-xl font-semibold">Hackathons</h3>
-              <p className="mt-4 text-gray-400">Build innovative projects and compete with peers.</p>
-            </motion.div>
+                  {/* Title */}
+                  <h3 className="text-black text-xl font-bold mb-4">
+                    {item.title}
+                  </h3>
 
-            {/* Manual Card 3 */}
-            <motion.div 
-              initial={{ opacity: 0, y: 50 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              transition={{ delay: 0.4 }}
-              className="bg-white/5 backdrop-blur-md p-12 rounded-2xl border border-white/10"
-            >
-              <h3 className="text-xl font-semibold">Community</h3>
-              <p className="mt-4 text-gray-400">Connect with developers, mentors, and industry leaders.</p>
-            </motion.div>
+                  {/* Description */}
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -175,10 +190,21 @@ document.documentElement.style.setProperty(
         <footer className="text-gray-500 text-center py-8 border-t border-white/10 bg-black/40 backdrop-blur-md">
           <div className="py-12 border-t border-gray-50 text-center">
         <div className="flex justify-center gap-8 mb-8">
+          {/* Instagram Link */}
+      <a 
+        href="https://www.instagram.com/muiiwstudentchapter?igsh=ZnVlbHJ5NzcxcDU5"
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
           <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" className="w-6 opacity-70 grayscale hover:grayscale-0 cursor-pointer" alt="Instagram" />
+          </a>
+          <a 
+        href="https://www.linkedin.com/company/mu-iiw-student-chapter/" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
           <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" className="w-6 opacity-70 grayscale hover:grayscale-0 cursor-pointer" alt="LinkedIn" />
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" className="w-6 opacity-70 grayscale hover:grayscale-0 cursor-pointer" alt="WhatsApp" />
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" className="w-6 opacity-70 grayscale hover:grayscale-0 cursor-pointer" alt="Discord" />
+        </a>
         </div>
         </div>
         <p className="text-gray-400 font-medium">

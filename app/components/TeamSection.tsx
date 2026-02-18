@@ -5,12 +5,12 @@ import { FaLinkedin } from "react-icons/fa";
 
 const categories = ["Chairman", "Lead", "Technical", "Management"];
 
-// FIX: Ensure every value here is an Array [ ... ], even if it has only one person.
 const teamData: any = {
   Chairman: [
     {
-      name: "Dr. Gaurang Rajendraprasad Joshi",
+      name: "Dr. Gaurang Joshi",
       role: "Chairman",
+      linkedin: "https://www.linkedin.com/in/dr-gaurang-rajendraprasad-joshi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       image: "/team/cm.jpeg",
     },
   ],
@@ -18,11 +18,13 @@ const teamData: any = {
     {
       name: "Akash Verma",
       role: "President",
+      linkedin: "https://www.linkedin.com/in/akash-verma-b90537346/",
       image: "/team/lead1.jpg",
     },
     {
       name: "Thun Thingyan Oo",
       role: "Vice President",
+      linkedin: "https://www.linkedin.com/in/thun-thingyan-oo-707397328?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       image: "/team/lead2.jpeg",
     },
   ],
@@ -30,40 +32,46 @@ const teamData: any = {
     {
       name: "Aditya Prajkash Yallamelli",
       role: "Technical",
+      linkedin: "https://www.linkedin.com/in/adithya-prakash-yallamelli-59b621349?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       image: "/team/tech1.jpeg",
     },
     {
       name: "Akambareshwar Neela",
       role: "Technical",
+      linkedin: "https://www.linkedin.com/in/akambareswar-neela-65a496383?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       image: "/team/tech2.jpeg",
     },
     {
       name: "Arsh Yadav",
       role: "Technical", 
+      linkedin: "https://www.linkedin.com/in/arsh-yadav-4682923a0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       image: "/team/tech3.jpeg",
     },
   ],
   Management: [
     {
-      name: "Khushal Joshi",
-      role: "Secretary",
-      image: "/team/secretary.jpeg"
-    },
-    {
       name: "Kshitiz Sawarnn",
       role: "Treasurer",
+      linkedin: "https://www.linkedin.com/in/kshitiz-sawarnn-a8a17419a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       image: "/team/treasurer.jpeg",
+    },
+    {
+      name: "Mohammad Shahid Mohammad Aybani",
+      role: "Secretary",
+      linkedin: "https://www.linkedin.com/in/mohammed-shahid-aybani-8014a3393?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      image: "/team/secretary.png"
     },
     {
       name: "Rao Vishal Singh",
       role: "Conveyor",
+      linkedin: "https://www.linkedin.com/in/rao-vishal-singh-6636b4375?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       image: "/team/conv.jpeg"
     }
   ]
 };
 
 export default function TeamSection() {
-  const [active, setActive] = useState("Lead");
+  const [active, setActive] = useState("Chairman");
 
   return (
     <section id="team" className="relative min-h-screen text-white py-32 overflow-hidden">
@@ -130,8 +138,16 @@ export default function TeamSection() {
                 </p>
 
                 <div className="flex justify-center gap-6 text-xl">
-                  <FaLinkedin className="cursor-pointer hover:text-blue-400 transition" />
-                </div>
+  {/* Wrap the icon in an anchor tag so it becomes a clickable link */}
+  <a 
+    href={member.linkedin} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="hover:text-blue-400 transition-colors duration-300"
+  >
+    <FaLinkedin className="cursor-pointer" />
+  </a>
+</div>
               </motion.div>
             ))}
           </motion.div>
