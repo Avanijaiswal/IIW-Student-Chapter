@@ -8,35 +8,28 @@ import { motion, useScroll, useTransform } from "framer-motion";
 const Navbar = () => {
   const { scrollY } = useScroll();
 
-  // Width animation only
   const maxWidth = useTransform(scrollY, [0, 150], ["1100px", "950px"]);
-
-  // Pure blur (no tint)
-  const backdropBlur = useTransform(
-    scrollY,
-    [0, 150],
-    ["blur(14px)", "blur(20px)"]
-  );
-
-  // Slight lift
+  const backdropBlur = useTransform(scrollY, [0, 150], ["blur(14px)", "blur(20px)"]);
   const y = useTransform(scrollY, [0, 150], [0, -6]);
 
   const handleScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
-  ) => {
-    e.preventDefault();
-    const elem = document.getElementById(targetId);
-    if (elem) {
-      window.scrollTo({
-        top: elem.offsetTop - 90,
-        behavior: "smooth",
-      });
-    }
-  };
+  e: React.MouseEvent<HTMLAnchorElement>,
+  targetId: string
+) => {
+  e.preventDefault();
+  const elem = document.getElementById(targetId);
+  if (elem) {
+    // This tells the browser to just go to the element
+    // It will now respect the 'scroll-mt-28' you added to the sections!
+    elem.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+};
 
   return (
-    <div className="fixed top-6 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none">
+<div className="fixed top-6 left-0 right-0 z-[100] flex justify-center px-4">
       <motion.nav
         style={{
           maxWidth,
@@ -46,14 +39,15 @@ const Navbar = () => {
         className="
           pointer-events-auto
           w-full
-          h-[52px]
+          h-[60px]
           flex
           items-center
           justify-between
           px-6
           rounded-full
-          bg-transparent
+          bg-black/40 
           border border-white/10
+          shadow-[0_4px_30px_rgba(0,0,0,0.5)]
           transition-all duration-300
         "
       >
@@ -71,9 +65,7 @@ const Navbar = () => {
           <div className="flex flex-col justify-center leading-tight border-l border-white/10 pl-3">
             <div className="flex items-center gap-1 uppercase font-semibold tracking-tight text-sm">
               <span className="text-white">MU-IIW</span>
-              <span className="text-[#FF3131]">
-                STUDENT CHAPTER
-              </span>
+              <span className="text-[#FF3131]">STUDENT CHAPTER</span>
             </div>
             <span className="text-[9px] text-gray-400 uppercase tracking-[0.25em] font-medium">
               MARWADI UNIVERSITY
@@ -107,10 +99,7 @@ const Navbar = () => {
             Contact
           </a>
 
-          <a
-            href="#events"
-            onClick={(e) => handleScroll(e, "events")}
-          >
+          <a href="#events" onClick={(e) => handleScroll(e, "events")}>
             <button
               className="
                 px-4 py-1.5

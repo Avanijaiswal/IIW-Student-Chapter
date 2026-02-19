@@ -39,34 +39,49 @@ export default function Home() {
         <CursorGlow />
         
         {/* NAVBAR - Now properly included */}
-        <Navbar />
+        
 
         {/* 1. HERO SECTION */}
-        <section className="relative min-h-screen flex items-center overflow-hidden px-16 bg-transparent">
+        {/* 1. HERO SECTION */}
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-12 bg-transparent">
           {/* Grid Background */}
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
           
-          <div className="relative z-10 w-full">
-            <h1 className="font-[var(--font-antonio)] uppercase leading-[0.8] select-none">
-              <span className="block text-[120px] md:text-[200px] lg:text-[250px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 hover:drop-shadow-[0_0_50px_rgba(255,0,0,0.6)]"
-                style={{ transform: "scaleY(0.85)" }}>
-                LIMITLESS
-              </span>
-              <span className="block text-[120px] md:text-[200px] lg:text-[250px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 hover:drop-shadow-[0_0_60px_rgba(255,0,0,0.7)]"
-                style={{ transform: "scaleY(0.85)" }}>
-                ENGINEER
-              </span>
-            </h1>
+          {/* CHANGED: We now use flex and justify-center to perfectly center the entire text block on the screen */}
+          <div className="relative z-10 w-full flex justify-center">
+            
+            {/* This inner div groups the text and tagline so they align neatly with each other, but stay mathematically centered on the screen */}
+            <div className="flex flex-col items-start">
+              
+              <motion.h1 
+                initial={{ opacity: 0, x: -500 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ type: "spring", damping: 20, stiffness: 150 }}
+                className="group uppercase leading-[0.85] md:leading-[0.85] select-none flex flex-col items-start cursor-default"
+                style={{ fontFamily: "var(--font-syne), sans-serif" }}
+              >
+                
+                {/* CHANGED: Swapped #000000 to #FF0000 for a sharp, pure red drop-shadow */}
+                <span className="block text-[18vw] sm:text-[16vw] md:text-[14vw] xl:text-[165px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 group-hover:drop-shadow-[-6px_6px_0px_#FF0000]">
+                  LIMITLESS
+                </span>
+                
+                <span className="block text-[18vw] sm:text-[16vw] md:text-[14vw] xl:text-[165px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 group-hover:drop-shadow-[-6px_6px_0px_#FF0000]">
+                  ENGINEER
+                </span>
 
-            {/* TAGLINE */}
-            <motion.p 
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              className="mt-8 text-xl md:text-3xl font-light tracking-[0.3em] uppercase text-white/80 select-none pl-4 border-l-4 border-red-600"
-            >
-              Forging the Future, One Weld at a Time.
-            </motion.p>
+              </motion.h1>
+
+              {/* TAGLINE */}
+              <motion.p 
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mt-6 md:mt-8 text-xs sm:text-sm md:text-xl lg:text-2xl font-light tracking-[0.3em] uppercase text-white/80 select-none pl-3 md:pl-4 border-l-2 md:border-l-4 border-red-600"
+              >
+                Forging the Future, One Weld at a Time.
+              </motion.p>
+            </div>
           </div>
         </section>
 
@@ -95,7 +110,7 @@ export default function Home() {
 
         {/* 3. EVENTS SECTION */}
         {/* Wrapped with ID so Navbar link works */}
-        <section id="events">
+        <section id="events" className="scroll-mt-28">
            <Events />
         </section>
 

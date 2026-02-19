@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin } from "react-icons/fa";
@@ -92,22 +93,33 @@ export default function TeamSection() {
   const [active, setActive] = useState("Faculty Corner");
 
   return (
-    <section id="team" className="relative z-10 min-h-screen text-white py-32 overflow-hidden">
-      
+<section id="team" className="scroll-mt-[84px] relative z-10 min-h-screen text-white py-32 overflow-hidden scroll-mt-28">      
       {/* Background Glow */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
         <div className="w-[600px] h-[600px] bg-purple-600 opacity-20 blur-[120px] rounded-full" />
       </div>
 
-      {/* FIX 1: Changed 'max-w-6xl' to 'max-w-[1400px]' 
-         This gives the container enough width to hold 4 cards 
-      */}
       <div className="relative z-10 max-w-[1400px] mx-auto text-center px-4">
 
-        <h2 className="text-5xl font-bold mb-12">Core Team</h2>
+        {/* 1. SCROLL ANIMATION: Title */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-5xl font-bold mb-12"
+        >
+          Core Team
+        </motion.h2>
 
-        {/* Category Pills */}
-        <div className="flex justify-center gap-4 flex-wrap mb-16">
+        {/* 2. SCROLL ANIMATION: Category pills */}
+        <motion.div 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          className="flex justify-center gap-4 flex-wrap mb-16"
+        >
           {categories.map((cat) => (
             <button
               key={cat}
@@ -121,57 +133,61 @@ export default function TeamSection() {
               {cat}
             </button>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Cards Grid */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -40 }}
-            transition={{ duration: 0.5 }}
-            /* FIX 2: Reduced gap from 'gap-10' to 'gap-6'.
-               This saves space so the 4th card doesn't get pushed down.
-            */
-            className="flex flex-wrap justify-center gap-6"
-          >
-            {(teamData[active] || []).map((member: any, index: number) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.05 }}
-                className="relative w-[300px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 transition"
-              >
-                <div className="overflow-hidden rounded-2xl mb-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-[350px] object-cover transition duration-500 hover:scale-110"
-                  />
-                </div>
+        {/* 3. SCROLL ANIMATION: The cards container */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-wrap justify-center gap-6"
+            >
+              {(teamData[active] || []).map((member: any, index: number) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative w-[300px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 transition"
+                >
+                  <div className="overflow-hidden rounded-2xl mb-6">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-[350px] object-cover transition duration-500 hover:scale-110"
+                    />
+                  </div>
 
-                <h3 className="text-xl font-semibold">
-                  {member.name}
-                </h3>
+                  <h3 className="text-xl font-semibold">
+                    {member.name}
+                  </h3>
 
-                <p className="text-gray-400 mb-4">
-                  {member.role}
-                </p>
+                  <p className="text-gray-400 mb-4">
+                    {member.role}
+                  </p>
 
-                <div className="flex justify-center gap-6 text-xl">
-                  <a 
-                    href={member.linkedin} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="hover:text-blue-400 transition-colors duration-300"
-                  >
-                    <FaLinkedin className="cursor-pointer" />
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </AnimatePresence>
+                  <div className="flex justify-center gap-6 text-xl">
+                    <a 
+                      href={member.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="hover:text-blue-400 transition-colors duration-300"
+                    >
+                      <FaLinkedin className="cursor-pointer" />
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
 
       </div>
     </section>

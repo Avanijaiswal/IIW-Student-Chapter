@@ -46,7 +46,7 @@ const pastEvents = [
 
 export default function EventsSection() {
   return (
-    <section className="py-24 relative z-10 overflow-hidden space-y-24">
+    <section className="scroll-mt-[84px] py-24 relative z-10 overflow-hidden space-y-24">
       
       {/* ================= UPCOMING EVENTS SECTION ================= */}
       <div className="max-w-[1400px] mx-auto px-6">

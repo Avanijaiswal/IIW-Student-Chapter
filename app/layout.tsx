@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { Syne } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar"; 
 import InteractiveBackground from "./components/InteractiveBackground";
-import { Antonio } from "next/font/google";
+//import { Antonio } from "next/font/google";
 
-const antonio = Antonio({
+const syne = Syne({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-antonio",
+  weight: ["400", "700", "800"], // 800 is extra bold and wide
+  variable: "--font-syne",
 });
 
 const poppins = Poppins({
@@ -28,13 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${antonio.variable} antialiased`}>
-        {/* Only include these three specific layers */}
+      <body className={`${poppins.className} ${syne.variable} antialiased bg-[#0a0a0a]`}>
         <InteractiveBackground />
-        
         <Navbar /> 
-        
-        <main className="relative z-10 pt-10">
+        <main className="relative z-10">
           {children}
         </main>
       </body>

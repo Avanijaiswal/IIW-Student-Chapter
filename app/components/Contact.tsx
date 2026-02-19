@@ -38,8 +38,8 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="relative py-24 px-6 z-10">
-      <div className="max-w-4xl mx-auto text-center">
+<section id="contact" className="scroll-mt-[84px] relative py-24 px-6 z-10 scroll-mt-28">
+        <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-5xl md:text-6xl font-bold tracking-tighter text-white mb-4">Get in touch</h2>
         <p className="text-gray-400 text-lg mb-12">Have questions? Send us a message.</p>
 
