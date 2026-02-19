@@ -10,8 +10,8 @@ const teamData: any = {
     {
       name: "Dr. Ramesh Bhoraniya",
       role: "Head Of Department",
-      linkedin: "https://www.linkedin.com/in/dr-gaurang-rajendraprasad-joshi",
-      image: "/team/cm.jpeg",
+      linkedin: "https://www.linkedin.com/in/ramesh-bhoraniya-phd-0aa853142/",
+      image: "/team/hod.jpg",
     },
     {
       name: "Dr. Gaurang Joshi",
@@ -22,7 +22,7 @@ const teamData: any = {
     {
       name: "Mr. Mukhtar Sama",
       role: "Life Member & Ex-Chairman",
-      linkedin: "https://www.linkedin.com/in/dr-gaurang-rajendraprasad-joshi",
+      linkedin: "https://www.linkedin.com/in/mukhtar-sama-3b5898a2/",
       image: "/team/cm.jpeg",
     },
     {
