@@ -92,7 +92,7 @@ export default function EventsSection() {
                 </div>
                 {/* 2. EXPLORE BUTTON CONVERTED TO A LINK */}
                 <a 
-                  href={event.link} 
+                 // href={event.link} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="mx-auto text-xs font-bold uppercase tracking-widest border-b-2 border-red-600 pb-1 hover:text-red-500 transition-colors cursor-pointer"
