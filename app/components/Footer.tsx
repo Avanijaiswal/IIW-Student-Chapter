@@ -29,7 +29,7 @@ export default function Footer() {
             {/* Branding */}
             <div>
               <h3 className="text-2xl font-extrabold tracking-tight">
-                IIW Student Chapter
+                MU-IIW Student Chapter
               </h3>
               <p className="text-gray-500 text-sm">
                 Marwadi University
@@ -66,9 +66,7 @@ export default function Footer() {
               <div className="text-gray-600 flex items-center gap-2 text-sm font-medium">
   <Phone className="w-4 h-4 text-red-500" />
   <div className="flex gap-4">
-    <a href="tel:+919724232269" className="hover:text-red-500 transition-colors">
-      +91 97242 32269
-    </a>
+
     <span className="text-gray-300">|</span>
     <a href="tel:+916353362642" className="hover:text-red-500 transition-colors">
     +91 63533 62642
