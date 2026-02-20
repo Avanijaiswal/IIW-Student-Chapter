@@ -11,6 +11,7 @@ import Events from "./components/Events";
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
 
+
 export default function Home() {
   const { scrollY } = useScroll();
   const interactiveRef = useRef<HTMLDivElement>(null);
@@ -86,27 +87,74 @@ export default function Home() {
         </section>
 
         {/* 2. ABOUT SECTION */}
-        <section id="about" className="py-24 px-6 bg-transparent">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-5xl font-bold mb-16 tracking-tight">About MU-IIW Student Chapter</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-9">
-              {[
-                { title: "Our Mission", desc: "Empowering students with technical mastery and industry skills.", icon: <Target className="w-9 h-9 text-black" /> },
-                { title: "Our Vision", desc: "To be a global center of excellence for engineering leadership.", icon: <Eye className="w-9 h-9 text-black" /> },
-                { title: "Our Values", desc: "Excellence, innovation, sustainability, and integrity.", icon: <ShieldCheck className="w-9 h-9 text-black" /> },
-                { title: "Our Community", desc: "A vibrant group of dreamers and doers united by innovation.", icon: <Users className="w-9 h-9 text-black" /> },
-                { title: "Our Events", desc: "Workshops, Expert Talks and Industrial Visits that turn ideas into impact.", icon: <Calendar className="w-9 h-9 text-black" /> },
-              ].map((item, index) => (
-                <motion.div key={index} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-[40px] p-8 flex flex-col items-center shadow-xl hover:scale-105 transition-transform">
-                  <div className="text-4xl mb-6 text-black">{item.icon}</div>
-                  <h3 className="text-black text-xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-gray-600 text-sm">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
+<section id="about" className="py-24 px-6 bg-transparent">
+  <div className="max-w-7xl mx-auto text-center">
+
+    {/* Section Title */}
+    <h2 className="text-5xl font-bold mb-6 tracking-tight text-white">
+      About MU-IIW Student Chapter
+    </h2>
+
+    {/* Client Requested Line */}
+    <p className="text-sm md:text-base text-gray-400 font-medium tracking-wide max-w-4xl mx-auto mb-14">
+      MU-IIW Student Chapter, Department of Mechanical Engineering, Marwadi University
+    </p>
+
+    {/* Cards Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-9">
+      {[
+        {
+          title: "Our Mission",
+          desc: "Empowering students with technical mastery and industry skills.",
+          icon: <Target className="w-9 h-9 text-black" />
+        },
+        {
+          title: "Our Vision",
+          desc: "To be a global center of excellence for engineering leadership.",
+          icon: <Eye className="w-9 h-9 text-black" />
+        },
+        {
+          title: "Our Values",
+          desc: "Excellence, innovation, sustainability, and integrity.",
+          icon: <ShieldCheck className="w-9 h-9 text-black" />
+        },
+        {
+          title: "Our Community",
+          desc: "A vibrant group of dreamers and doers united by innovation.",
+          icon: <Users className="w-9 h-9 text-black" />
+        },
+        {
+          title: "Our Events",
+          desc: "Workshops, Expert Talks and Industrial Visits that turn ideas into impact.",
+          icon: <Calendar className="w-9 h-9 text-black" />
+        },
+      ].map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="bg-white rounded-[40px] p-8 flex flex-col items-center shadow-xl hover:scale-105 transition-transform duration-300"
+        >
+          <div className="mb-6 p-4 bg-gray-50 rounded-2xl">
+            {item.icon}
           </div>
-        </section>
+
+          <h3 className="text-black text-xl font-bold mb-4">
+            {item.title}
+          </h3>
+
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {item.desc}
+          </p>
+        </motion.div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
 
         {/* 3. EVENTS SECTION */}
         {/* Wrapped with ID so Navbar link works */}

@@ -9,28 +9,28 @@ const categories = ["Faculty Corner", "Lead", "Technical", "Management"];
 const teamData: any = {
   "Faculty Corner": [
     {
-      name: "Dr. Ramesh Bhoraniya",
+      name: "Prof. Ramesh Bhoraniya",
       role: "Head Of Department",
       linkedin: "https://www.linkedin.com/in/ramesh-bhoraniya-phd-0aa853142/",
       image: "/team/hod.jpg",
     },
     {
       name: "Dr. Gaurang Joshi",
-      role: "Chairman",
+      role: "Founder & Chairman",
       linkedin: "https://www.linkedin.com/in/dr-gaurang-rajendraprasad-joshi",
       image: "/team/cm.jpeg",
     },
     {
-      name: "Mr. Mukhtar Sama",
+      name: "Prof. Mukhtar Sama",
       role: "Life Member & Ex-Chairman",
       linkedin: "https://www.linkedin.com/in/mukhtar-sama-3b5898a2/",
-      image: "/team/cm.jpeg",
+      image: "/team/lm1.jpg",
     },
     {
-      name: "Mr. Vivek Pathak",
+      name: "Prof. Vivek Pathak",
       role: "Life Member",
-      linkedin: "https://www.linkedin.com/in/dr-gaurang-rajendraprasad-joshi",
-      image: "/team/cm.jpeg",
+      linkedin: "https://www.linkedin.com/in/vivekjpathak",
+      image: "/team/lm2.jpg",
     },
   ],
   Lead: [
