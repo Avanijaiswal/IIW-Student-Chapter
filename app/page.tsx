@@ -97,7 +97,7 @@ export default function Home() {
 
     {/* Client Requested Line */}
     <p className="text-sm md:text-base text-gray-400 font-medium tracking-wide max-w-4xl mx-auto mb-14">
-      MU-IIW Student Chapter, Department of Mechanical Engineering, Marwadi University
+      Department of Mechanical Engineering, Marwadi University
     </p>
 
     {/* Cards Grid */}
