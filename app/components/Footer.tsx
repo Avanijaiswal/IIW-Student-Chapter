@@ -47,7 +47,8 @@ export default function Footer() {
               </h4>
 
               <div className="text-gray-600 leading-relaxed">
-                <p>Marwadi University,</p>
+                <p>Department Of Mechanical Engineering</p>
+                <p>Marwadi University</p>
                 <p>Rajkot-Morbi Highway, Rajkot</p>
                 <p className="font-semibold mt-2">Pin: 360003</p>
               </div>

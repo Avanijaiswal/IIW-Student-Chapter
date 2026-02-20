@@ -12,7 +12,7 @@ export default function ContactSection() {
     
     const formData = new FormData(event.target);
     // Use the key you just found in your dashboard
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+    formData.append("access_key", "ac41c25d-5dc9-47a7-8c4b-3debd83dfe32");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

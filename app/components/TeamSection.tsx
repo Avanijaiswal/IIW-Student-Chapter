@@ -110,6 +110,7 @@ export default function TeamSection() {
           className="text-5xl font-bold mb-12"
         >
           Core Team
+<div className="h-1 w-24 mx-auto bg-red-600 mt-4" />
         </motion.h2>
 
         {/* 2. SCROLL ANIMATION: Category pills */}
