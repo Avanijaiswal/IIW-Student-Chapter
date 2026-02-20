@@ -31,7 +31,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${poppins.className} ${syne.variable} antialiased bg-[#0a0a0a]`}>
         <InteractiveBackground />
-        <Navbar /> 
         <main className="relative z-10">
           {children}
         </main>
