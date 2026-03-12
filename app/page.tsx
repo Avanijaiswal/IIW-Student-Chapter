@@ -11,6 +11,7 @@ import Contact from "./components/Contact";
 import Events from "./components/Events"; 
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
+import InteractiveBackground from "./components/InteractiveBackground";
 
 
 export default function Home() {
@@ -39,7 +40,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative min-h-screen w-full text-white bg-[#0a0a0a]">
+    <div className="relative min-h-screen w-full text-white bg-transparent">
       
       {/* 1. THE SPLASH SCREEN */}
       <AnimatePresence>
@@ -59,6 +60,8 @@ export default function Home() {
           
           {/* 1. HERO SECTION */}
           <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-12 bg-transparent">
+        
+
             {/* Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
             

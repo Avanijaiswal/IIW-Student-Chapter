@@ -29,9 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${syne.variable} antialiased bg-[#0a0a0a]`}>
+      <body className={`${poppins.className} ${syne.variable} antialiased bg-black`}>
         <InteractiveBackground />
-        <main className="relative z-10">
+        <main className="relative z-20">
           {children}
         </main>
       </body>
