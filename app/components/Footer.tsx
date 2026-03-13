@@ -63,7 +63,7 @@ export default function Footer() {
 
               <p className="text-gray-600 hover:text-red-500 transition cursor-pointer">
                 <a href="mailto:muiiwstudentchapter@gmail.com" className="hover:underline">
-                   muiiwstudentchapter@gmail.com
+                   MU-IIW@marwadieducation.edu.in
                 </a>
               </p>
 

@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import TeamSection from "./components/TeamSection";
 import Contact from "./components/Contact"; 
 import Events from "./components/Events"; 
+import Glimpse from "./components/Glimpse";
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
 import InteractiveBackground from "./components/InteractiveBackground";
@@ -173,6 +174,9 @@ export default function Home() {
 
           {/* 4. CORE TEAM SECTION */}
           <TeamSection />
+
+          {/* GLIMPSES */}
+          <Glimpse />   
 
           {/* 5. CONTACT SECTION */}
           <Contact />

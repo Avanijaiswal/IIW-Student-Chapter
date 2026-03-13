@@ -92,6 +92,14 @@ const Navbar = () => {
           </a>
 
           <a
+            href="#Glimpse"
+            onClick={(e) => handleScroll(e, "Glimpse")}
+            className="hover:text-[#FF3131] transition-colors"
+          >
+            Glimpse
+          </a>
+
+          <a
             href="#contact"
             onClick={(e) => handleScroll(e, "contact")}
             className="hover:text-[#FF3131] transition-colors"

@@ -23,24 +23,6 @@ const pastEvents = [
     date: "January 2026", 
     img: "/events/event22.jpg",
     link: "https://www.linkedin.com/posts/mu-iiw-student-chapter_muiiw-student-chapter-successfully-conducted-activity-7425799338615898112-MHrj?utm_source=share&utm_medium=member_desktop&rcm=ACoAADh1PfYBCRKQp4D0XLSzWrmmRFoy3NYLSRY" 
-  },
-  { 
-    title: "Industrial Visit to IIT Gandhinagar", 
-    date: "December 2025", 
-    img: "/events/event3.jpg",
-    link: "https://www.linkedin.com/posts/mu-iiw-student-chapter_on-6th-december-2025-students-and-faculty-activity-7403759360457453568-Lzdc?utm_source=share&utm_medium=member_desktop&rcm=ACoAADh1PfYBCRKQp4D0XLSzWrmmRFoy3NYLSRY" 
-  },
-  { 
-    title: "Automotive Welding Seminar", 
-    date: "October 2025", 
-    img: "/events/event4.jpg",
-    link: "https://www.linkedin.com/posts/mu-iiw-student-chapter_postevent-weldingseminar-automotiveengineering-activity-7382381384402780160-kAB_?utm_source=share&utm_medium=member_desktop&rcm=ACoAADh1PfYBCRKQp4D0XLSzWrmmRFoy3NYLSRY" 
-  },
-  { 
-    title: "Workshop on Smorphi Robots", 
-    date: "September 2025", 
-    img: "/events/event5.jpg",
-    link: "https://www.linkedin.com/posts/mu-iiw-student-chapter_mu-iiw-studentchapter-activity-7375567081481736192-D4nO?utm_source=share&utm_medium=member_desktop&rcm=ACoAADh1PfYBCRKQp4D0XLSzWrmmRFoy3NYLSRY" 
   }
 ];
 
@@ -60,7 +42,7 @@ export default function EventsSection() {
 
         {/* Scroll Container */}
         <div 
-          className="flex justify-center overflow-x-auto gap-10 pb-12 no-scrollbar snap-x snap-mandatory flex-row"
+          className="flex justify-center overflow-x-auto gap-6 pb-12 no-scrollbar snap-x snap-mandatory flex-row"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {upcomingEvents.map((event, index) => (
@@ -81,12 +63,12 @@ export default function EventsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               </div>
 
-              <div className="p-8 flex flex-col justify-between h-1/3">
+              <div className="p-3 flex flex-col justify-between h-1/3">
                 <div className="text-center">
                     <span className="text-red-500 font-bold tracking-widest text-sm uppercase">
                         {event.date}
                     </span>
-                    <h3 className="text-3xl font-bold tracking-tight mt-1 group-hover:text-red-500 transition-colors">
+                    <h3 className="text-lg font-bold tracking-tight mt-1 group-hover:text-red-500 transition-colors">
                         {event.title}
                     </h3>
                 </div>
@@ -117,7 +99,7 @@ export default function EventsSection() {
 
         {/* Scroll Container */}
         <div 
-          className="flex overflow-x-auto gap-10 pb-12 no-scrollbar snap-x snap-mandatory flex-row"
+          className="flex justify-center overflow-x-auto gap-10 pb-12 no-scrollbar snap-x snap-mandatory flex-row"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {pastEvents.map((event, index) => (
@@ -128,7 +110,7 @@ export default function EventsSection() {
               viewport={{ once: false, amount: 0.3 }}
               transition={{ duration: 0.8, ease: [0.215, 0.61, 0.355, 1.0] }}
               style={{ perspective: "1500px", transformStyle: "preserve-3d" }}
-              className="min-w-[350px] md:min-w-[450px] aspect-[4/5] bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] overflow-hidden snap-center group flex flex-col"
+              className="w-1/3 shrink-0 bg-white/5 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:scale-105 transition"
             >
               <div className="h-2/3 w-full overflow-hidden relative">
                 <img 
@@ -139,7 +121,7 @@ export default function EventsSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               </div>
 
-              <div className="p-8 flex flex-col justify-between h-1/3">
+              <div className="p-3 flex flex-col justify-between h-1/3">
                 <div className="text-center">
                     <span className="text-red-500 font-bold tracking-widest text-sm uppercase">
                         {event.date}
