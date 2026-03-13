@@ -35,6 +35,12 @@ const glimpses = [
     year: "2025",
   },
   {
+    title: "Young Professionals' International Conference (YPIC INDIA-2025)",
+    image: "/glimpse/glimpse17.png",
+    date: "SEPTEMBER 2025",
+    year: "2025",
+  },
+  {
     title: "Workshop on Smorphi Robots",
     image: "/glimpse/event5.jpg",
     date: "SEPTEMBER 2025",
@@ -118,12 +124,48 @@ const glimpses = [
     date: "OCTOBER 2022",
     year: "2022",
   },
+  {
+    title: "Young Professional Seminar organized by IIW Student Chapter, PDPU",
+    image: "/glimpse/glimpse19.jpg",
+    date: "JANUARY 2019",
+    year: "2019",
+  },
+  {
+    title: "Establishment of IIW Student Chapter at MEFGI",
+    image: "/glimpse/glimpse20.jpg",
+    date: "JANUARY 2019",
+    year: "2019",
+  },
+  {
+    title: "Industrial Visit to L&T Shipbuilding Ltd., Hazira Plant",
+    image: "/glimpse/glimpse18.jpg",
+    date: "FEBRUARY 2019",
+    year: "2019",
+  },
+  {
+    title: "Industrial Visit to Kalpataru Power Transmission Ltd., Gandhinagar",
+    image: "/glimpse/glimpse21.png",
+    date: "FEBRUARY 2018",
+    year: "2018",
+  },
+  {
+    title: "Inauguration of IIW Student Chapter at ITM Universe",
+    image: "/glimpse/glimpse22.png",
+    date: "SEPTEMBER 2017",
+    year: "2017",
+  },
+  {
+    title: "69th IIW Annual Assembly & International Conference",
+    image: "/glimpse/glimpse23.jpg",
+    date: "SEPTEMBER 2016",
+    year: "2016",
+  },
 ];
 
 export default function Glimpse() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "2025", "2024", "2023", "2022"];
+  const categories = ["All", "2025", "2024", "2023", "2022", "2019", "2018", "2017", "2016"];
 
   const filteredGlimpses =
     activeCategory === "All"
@@ -165,10 +207,16 @@ export default function Glimpse() {
 {/* HORIZONTAL SLIDING CARDS FOR ALL CATEGORIES */}
 
         {/* 1. Changed to w-full so it doesn't break the page width */}
-        <div className="flex w-full gap-8 overflow-x-auto pb-8 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          {filteredGlimpses.map((item, index) => (
-            <motion.div
-              key={index}
+        <div 
+  className={`flex w-full gap-8 overflow-x-auto pb-8 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
+    ["All", "2025", "2024"].includes(activeCategory) 
+      ? "justify-start" 
+      : "justify-center"
+  }`}
+>
+  {filteredGlimpses.map((item, index) => (
+    <motion.div
+      key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

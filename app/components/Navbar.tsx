@@ -92,8 +92,8 @@ const Navbar = () => {
           </a>
 
           <a
-            href="#Glimpse"
-            onClick={(e) => handleScroll(e, "Glimpse")}
+            href="#glimpses"
+            onClick={(e) => handleScroll(e, "glimpses")}
             className="hover:text-[#FF3131] transition-colors"
           >
             Glimpse
