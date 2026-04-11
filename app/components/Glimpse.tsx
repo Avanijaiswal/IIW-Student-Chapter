@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const glimpses = [
   {
-    title: "One-Day workshop on Friction Stir Welding of Aluminium",
+    title: "One-Day workshop on FSW at PDEU",
     image: "/glimpse/glimpse1.png",
     date: "JANUARY 2025",
     year: "2025",
@@ -23,7 +23,7 @@ const glimpses = [
     year: "2025",
   },
   {
-    title: "Collabration for research on welding",
+    title: "Collaboration for research on welding at IIT Mandi",
     image: "/glimpse/glimpse4.png",
     date: "MARCH 2025",
     year: "2025",
@@ -35,7 +35,7 @@ const glimpses = [
     year: "2025",
   },
   {
-    title: "Young Professionals' International Conference (YPIC INDIA-2025)",
+    title: "Participation in YPIC INDIA-2025 at NSUT Delhi",
     image: "/glimpse/glimpse17.png",
     date: "SEPTEMBER 2025",
     year: "2025",
@@ -53,8 +53,26 @@ const glimpses = [
     year: "2025",
   },
   {
-    title: "Industrial Visit to IIT Gandhinagar",
+    title: "Attending 1st year Anniversary of IIW Ahmedabad Centre",
     image: "/glimpse/event3.jpg",
+    date: "DECEMBER 2025",
+    year: "2025",
+  },
+  {
+    title: "Visit to IIT Gandhinagar for Project Engagements",
+    image: "/glimpse/glimpse.jpeg",
+    date: "DECEMBER 2025",
+    year: "2025",
+  },
+  {
+    title: "Visiting ENGIMACH Gandhinagar",
+    image: "/glimpse/Dec.jpeg",
+    date: "DECEMBER 2025",
+    year: "2025",
+  },
+  {
+    title: "Visit to ISRO SAC Ahmedabad",
+    image: "/glimpse/isro.jpeg",
     date: "DECEMBER 2025",
     year: "2025",
   },
@@ -78,7 +96,7 @@ const glimpses = [
   },
   {
     title: "Expert talk on Latest Welding Techniques",
-    image: "/glimpse/glimpse9.jpg",
+    image: "/glimpse/oct.jpeg",
     date: "OCTOBER 2024",
     year: "2024",
   },
@@ -165,7 +183,7 @@ const glimpses = [
 export default function Glimpse() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "2025", "2024", "2023", "2022", "2019", "2018", "2017", "2016"];
+  const categories = ["All", "2026", "2025", "2024", "2023", "2022", "2019", "2018", "2017", "2016"];
 
   const filteredGlimpses =
     activeCategory === "All"

@@ -49,7 +49,7 @@ const teamData: any = {
   ],
   Technical: [
     {
-      name: "Aditya Prajkash Yallamelli",
+      name: "Aditya Prakash Yallamelli",
       role: "Technical",
       linkedin: "https://www.linkedin.com/in/adithya-prakash-yallamelli-59b621349",
       image: "/team/tech1.jpg",
@@ -75,7 +75,7 @@ const teamData: any = {
       image: "/team/treasurer.jpg",
     },
     {
-      name: "Mohammad Shahid Mohammad Aybani",
+      name: "Mohammed Shahid Mohammed Aybani",
       role: "Secretary",
       linkedin: "https://www.linkedin.com/in/mohammed-shahid-aybani-8014a3393",
       image: "/team/sec.jpg",
