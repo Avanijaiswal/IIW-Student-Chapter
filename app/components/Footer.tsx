@@ -104,7 +104,7 @@ export default function Footer() {
           </div>
 
           <p className="text-center">
-            Built with ❤️ by{" "}
+            Developed by{" "}
             <span className="font-semibold text-blue-600">
               <a 
                 href="https://www.linkedin.com/in/avani-jaiswalll/" 
