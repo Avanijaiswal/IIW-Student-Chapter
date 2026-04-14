@@ -1,12 +1,12 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Map, 
-  UserPlus, 
-  Camera, 
-  Box, 
-  LayoutGrid 
+import {
+  Map,
+  UserPlus,
+  Camera,
+  Box,
+  LayoutGrid
 } from 'lucide-react';
 
 const aboutData = [
@@ -41,9 +41,9 @@ export default function AboutSection() {
   return (
     <section id="about" className="scroll-mt-[84px] py-24 px-6 bg-transparent">
       <div className="max-w-7xl mx-auto">
-        
+
         {/* Main Title */}
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,16 +53,15 @@ export default function AboutSection() {
           About MU-IIW Student Chapter
         </motion.h2>
 
-        {/* Client Requested Line */}
-        <motion.p 
-  initial={{ opacity: 0, y: 10 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6, delay: 0.2 }}
-  className="mt-3 text-sm md:text-base text-center text-gray-400 font-medium tracking-wide mb-14"
->
-  MU-IIW Student Chapter, Department of Mechanical Engineering, Marwadi University
-</motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-3 text-sm md:text-base text-center text-gray-400 font-medium tracking-wide mb-14"
+        >
+          MU-IIW Student Chapter, Department of Mechanical Engineering, Marwadi University
+        </motion.p>
 
         {/* Cards Container */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
@@ -85,8 +84,8 @@ export default function AboutSection() {
                 {item.title}
               </h3>
 
-              {/* Card Description (Using dangerouslySetInnerHTML to render <br> tags) */}
-              <p 
+              {/* Card Description */ } 
+              <p
                 className="text-gray-600 text-sm leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: item.desc }}
               />

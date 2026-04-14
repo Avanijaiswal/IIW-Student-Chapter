@@ -13,15 +13,22 @@ type AchievementItem = {
   role?: string;
   linkedin?: string;
   memberId?: string;
-  guide?: string;     // <-- NEW: Added guide property
-  students?: string;  // <-- NEW: Added students property
+  guide?: string;
+  students?: string;
+  link?: string;
 };
 
-const categories = ["Awards", "Student Projects", "Student Internships", "Paper Publications", "Active Student Members"];
+const categories = [
+  "Awards",
+  "Student Projects",
+  "Student Internships",
+  "Paper Publications",
+  "Active Student Members",
+];
 
 // 1. DATA OBJECT
 const Achievement: Record<string, AchievementItem[]> = {
-  "Awards": [
+  Awards: [
     {
       title: "Receiving Parimal Biswas Memorial Award for Academic year 2025",
       date: "January 2026",
@@ -30,30 +37,35 @@ const Achievement: Record<string, AchievementItem[]> = {
   ],
   "Student Projects": [
     {
-      title: "Friction Stir Welding Of AA6061-T651 on Traditional Milling Machine: Understanding Effect Of Processing Parameters",
-      
+      title:
+        "Friction Stir Welding Of AA6061-T651 on Traditional Milling Machine: Understanding Effect Of Processing Parameters",
+
       guide: "Dr. Gaurang Joshi, Prof. Vivek Pathak",
-      students: "Utsav Dangi, Akash Verma, Khushal Joshi", 
+      students: "Utsav Dangi, Akash Verma, Khushal Joshi",
     },
   ],
   "Student Internships": [
     {
       title: "Research Internship at IIT Gandhinagar",
       date: "MAY 2025 - JULY 2025",
-      name: "Akash Verma, Khushal Joshi, Utsav Dangi", 
+      name: "Akash Verma, Khushal Joshi, Utsav Dangi",
     },
     {
       title: "Weekend Industrial Internship PGSPL",
       date: "OCTOBER 2025 - APRIL 2025",
-      name: "Akash Verma", 
+      name: "Akash Verma",
     },
   ],
   "Paper Publications": [
     {
-      title: "TITLE : Producing friction stir channel on AA6061-T651 aluminium alloy for establishing the role of tool tilt angle and tool traverse speed",
+      title:
+        "TITLE : Producing friction stir channel on AA6061-T651 aluminium alloy for establishing the role of tool tilt angle and tool traverse speed",
       date: "JANUARY 2026",
-      image: "/acheivements/publications.jpeg",
-    }
+      link: "https://www.tandfonline.com/doi/pdf/10.1080/09507116.2026.2621061",
+      guide: "Dr. Gaurang Joshi, Prof. Vivek Pathak",
+      students: "Utsav Dangi, Akash Verma, Khushal Joshi",
+      //image: "/acheivements/publications.jpeg",
+    },
   ],
   // 2. ACTIVE MEMBERS ARRAY
   "Active Student Members": [
@@ -99,13 +111,16 @@ export default function Achievements() {
   const [active, setActive] = useState("Awards");
 
   return (
-    <section id="achiev" className="relative z-10 min-h-screen text-white py-32 overflow-hidden scroll-mt-28">      
+    <section
+      id="achiev"
+      className="relative z-10 min-h-screen text-white py-32 overflow-hidden scroll-mt-28"
+    >
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
         <div className="w-[600px] h-[600px] bg-purple-600 opacity-20 blur-[120px] rounded-full" />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto text-center px-4">
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
@@ -116,7 +131,7 @@ export default function Achievements() {
           <div className="h-1 w-24 mx-auto bg-red-600 mt-4" />
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
@@ -154,84 +169,101 @@ export default function Achievements() {
               className="flex flex-wrap justify-center gap-6"
             >
               {active === "Active Student Members" ? (
-                
                 // --- 3A. COMPACT GRID FOR ACTIVE MEMBERS ---
                 <div className="w-full max-w-6xl grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-4">
-                  {(Achievement[active] || []).map((student: AchievementItem, index: number) => (
-                    <div 
-                      key={index} 
-                      className="relative flex flex-col items-center justify-center px-4 py-3 bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-sm border border-white/10 rounded-lg hover:border-red-500/40 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                  {(Achievement[active] || []).map(
+                    (student: AchievementItem, index: number) => (
+                      <div
+                        key={index}
+                        className="relative flex flex-col items-center justify-center px-4 py-3 bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-sm border border-white/10 rounded-lg hover:border-red-500/40 hover:shadow-[0_0_20px_rgba(239,68,68,0.15)] hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-                      <span className="relative z-10 text-sm font-medium text-gray-300 group-hover:text-white transition-colors text-center">
-                        {student.name}
-                      </span>
-                      <span className="relative z-10 text-xs text-red-500/80 font-mono mt-1 text-center tracking-wider group-hover:text-red-400 transition-colors">
-                        {student.memberId}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-
-              ) : (
-                
-                // --- 3B. LARGE CARDS FOR EVERYTHING ELSE ---
-                (Achievement[active] || []).map((member: AchievementItem, index: number) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    className="relative w-[350px] min-h-[160px] bg-[#111111] border border-white/10 rounded-2xl overflow-hidden transition flex flex-col text-left"
-                  >
-                    {member.image && (
-                      <div className="w-full h-[240px] overflow-hidden shrink-0">
-                        <img
-                          src={member.image}
-                          alt={member.title || member.name}
-                          className="w-full h-full object-cover transition duration-500 hover:scale-110"
-                        />
+                        <span className="relative z-10 text-sm font-medium text-gray-300 group-hover:text-white transition-colors text-center">
+                          {student.name}
+                        </span>
+                        <span className="relative z-10 text-xs text-red-500/80 font-mono mt-1 text-center tracking-wider group-hover:text-red-400 transition-colors">
+                          {student.memberId}
+                        </span>
                       </div>
-                    )}
-
-                    <div className="p-6 flex flex-col flex-grow justify-center">
-                      
-                      {/* --- UPDATED: DYNAMIC RED TOP TEXT --- */}
-                      {/* If 'guide' exists, it prints "GUIDED BY- [Name]". Otherwise, it prints the date/role. */}
-                      <p className="text-red-500 font-bold text-sm tracking-wide uppercase mb-3">
-                        {member.guide ? `GUIDED BY- ${member.guide}` : (member.date || member.role)} 
-                      </p>
-                      
-                      <h3 className="text-2xl font-bold text-white leading-tight">
-                        {member.title || member.name}
-                      </h3>
-
-                      {/* --- INTERNSHIP RENDER BLOCK --- */}
-                      {active === "Student Internships" && member.name && (
-                        <div className="mt-5 pt-4 border-t border-white/10">
-                          <p className="text-sm text-gray-400">
-                            Intern(s): <span className="text-white font-medium tracking-wide">{member.name}</span>
-                          </p>
+                    ),
+                  )}
+                </div>
+              ) : (
+                // --- 3B. LARGE CARDS FOR EVERYTHING ELSE ---
+                (Achievement[active] || []).map(
+                  (member: AchievementItem, index: number) => (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.05 }}
+                      className="relative w-[350px] min-h-[160px] bg-[#111111] border border-white/10 rounded-2xl overflow-hidden transition flex flex-col text-left"
+                    >
+                      {member.image && (
+                        <div className="w-full h-[240px] overflow-hidden shrink-0">
+                          <img
+                            src={member.image}
+                            alt={member.title || member.name}
+                            className="w-full h-full object-cover transition duration-500 hover:scale-110"
+                          />
                         </div>
                       )}
 
-                      {/* --- NEW: STUDENT PROJECTS RENDER BLOCK --- */}
-                      {active === "Student Projects" && member.students && (
-                        <div className="mt-5 pt-4 border-t border-white/10">
-                          <p className="text-sm text-gray-400">
-                            Students: <span className="text-white font-medium tracking-wide">{member.students}</span>
-                          </p>
-                        </div>
-                      )}
+                      <div className="p-6 flex flex-col flex-grow justify-center">
+                        {/* --- UPDATED: DYNAMIC RED TOP TEXT --- */}
+                        <p className="text-red-500 font-bold text-sm tracking-wide uppercase mb-3">
+                          {member.guide
+                            ? `GUIDED BY- ${member.guide}`
+                            : member.date || member.role}
+                        </p>
 
-                    </div>
-                  </motion.div>
-                ))
+                        <h3 className="text-2xl font-bold text-white leading-tight">
+                          {member.title || member.name}
+                        </h3>
 
+                        {/* --- INTERNSHIP RENDER BLOCK --- */}
+                        {active === "Student Internships" && member.name && (
+                          <div className="mt-5 pt-4 border-t border-white/10">
+                            <p className="text-sm text-gray-400">
+                              Intern(s):{" "}
+                              <span className="text-white font-medium tracking-wide">
+                                {member.name}
+                              </span>
+                            </p>
+                          </div>
+                        )}
+                        {/* --- STUDENT PROJECTS RENDER BLOCK --- */}
+                        {member.students && (
+                          <div className="mt-5 pt-4 border-t border-white/10">
+                            <p className="text-sm text-gray-400">
+                              Students:{" "}
+                              <span className="text-white font-medium tracking-wide">
+                                {member.students}
+                              </span>
+                            </p>
+                          </div>
+                        )}
+
+                        {/* --- ADD THIS LINK RENDER BLOCK --- */}
+                        {member.link && (
+                          <div className="mt-5 pt-4 border-t border-white/10">
+                            <a
+                              href={member.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-red-500 hover:text-red-400 font-medium tracking-wide transition-colors"
+                            >
+                              Read Publication →
+                            </a>
+                          </div>
+                        )}
+                      </div>
+                    </motion.div>
+                  ),
+                )
               )}
             </motion.div>
           </AnimatePresence>
         </motion.div>
-
       </div>
     </section>
   );

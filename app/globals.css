@@ -25,7 +25,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px; /* Adjust this to match your navbar height + gap */
+  scroll-padding-top: 90px; 
 }
 
 body {
@@ -47,8 +47,12 @@ body {
 /* ===== FLOAT ANIMATION ===== */
 
 @keyframes float {
-  0% { transform: translateY(-40px) translateX(-20px) scale(1); }
-  100% { transform: translateY(40px) translateX(20px) scale(1.1); }
+  0% {
+    transform: translateY(-40px) translateX(-20px) scale(1);
+  }
+  100% {
+    transform: translateY(40px) translateX(20px) scale(1.1);
+  }
 }
 
 /* ===== BLOBS ===== */

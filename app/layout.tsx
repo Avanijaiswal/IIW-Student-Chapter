@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { Syne } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar"; 
+import Navbar from "./components/Navbar";
 import InteractiveBackground from "./components/InteractiveBackground";
 //import { Antonio } from "next/font/google";
 
 const syne = Syne({
   subsets: ["latin"],
-  weight: ["400", "700", "800"], // 800 is extra bold and wide
+  weight: ["400", "700", "800"], 
   variable: "--font-syne",
 });
 
@@ -29,11 +29,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} ${syne.variable} antialiased bg-black`}>
+      <body
+        className={`${poppins.className} ${syne.variable} antialiased bg-black`}
+      >
         <InteractiveBackground />
-        <main className="relative z-20">
-          {children}
-        </main>
+        <main className="relative z-20">{children}</main>
       </body>
     </html>
   );

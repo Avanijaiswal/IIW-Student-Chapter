@@ -19,9 +19,9 @@ export default function CursorGlow() {
   // Smooth trailing effect
   useEffect(() => {
     const animate = () => {
-      setSmoothPosition(prev => ({
+      setSmoothPosition((prev) => ({
         x: prev.x + (position.x - prev.x) * 0.1,
-        y: prev.y + (position.y - prev.y) * 0.1
+        y: prev.y + (position.y - prev.y) * 0.1,
       }));
       requestAnimationFrame(animate);
     };
@@ -33,7 +33,7 @@ export default function CursorGlow() {
     <div
       className="fixed top-0 left-0 pointer-events-none z-50 mix-blend-screen"
       style={{
-        transform: `translate(${smoothPosition.x - 200}px, ${smoothPosition.y - 200}px)`
+        transform: `translate(${smoothPosition.x - 200}px, ${smoothPosition.y - 200}px)`,
       }}
     >
       <div className="w-[400px] h-[400px] rounded-full bg-gradient-to-r from-blue-500 via-purple-500 via-pink-500 to-yellow-400 blur-[160px] opacity-80"></div>

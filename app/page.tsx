@@ -1,20 +1,24 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import SplashScreen from "./components/SplashScreen"; // Adjust this path if you put it in a different folder!
-import { Target, Eye, ShieldCheck, Users, Calendar } from 'lucide-react';
+import {
+  motion,
+  useScroll,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
+import SplashScreen from "./components/SplashScreen";
+import { Target, Eye, ShieldCheck, Users, Calendar } from "lucide-react";
 
 // --- COMPONENT IMPORTS ---
-import Navbar from "./components/Navbar"; 
+import Navbar from "./components/Navbar";
 import TeamSection from "./components/TeamSection";
-import Contact from "./components/Contact"; 
-import Events from "./components/Events"; 
+import Contact from "./components/Contact";
+import Events from "./components/Events";
 import Glimpse from "./components/Glimpse";
 import Achievements from "./components/Achievements";
 import Footer from "./components/Footer";
 import CursorGlow from "./components/CursorGlow";
 import InteractiveBackground from "./components/InteractiveBackground";
-
 
 export default function Home() {
   // --- SPLASH SCREEN STATE ---
@@ -33,7 +37,7 @@ export default function Home() {
       if (!interactiveRef.current) return;
       interactiveRef.current.animate(
         { left: `${clientX}px`, top: `${clientY}px` },
-        { duration: 3000, fill: "forwards" }
+        { duration: 3000, fill: "forwards" },
       );
     };
 
@@ -43,34 +47,29 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen w-full text-white bg-transparent">
-      
       {/* 1. THE SPLASH SCREEN */}
       <AnimatePresence>
-        {showSplash && (
-          <SplashScreen onComplete={() => setShowSplash(false)} />
-        )}
+        {showSplash && <SplashScreen onComplete={() => setShowSplash(false)} />}
       </AnimatePresence>
 
       {/* 2. THE MAIN WEBSITE */}
-      {/* This div stays hidden and prevents scrolling until the splash screen is done */}
-      <div className={`transition-opacity duration-700 ${showSplash ? "opacity-0 h-screen overflow-hidden" : "opacity-100"}`}>
+      <div
+        className={`transition-opacity duration-700 ${showSplash ? "opacity-0 h-screen overflow-hidden" : "opacity-100"}`}
+      >
         <div className="relative z-10">
           <CursorGlow />
-          
+
           {/* NAVBAR */}
           <Navbar />
-          
+
           {/* 1. HERO SECTION */}
           <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6 lg:px-12 bg-transparent">
-        
-
             {/* Grid Background */}
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,0,0,0.02)_1px,transparent_1px)] bg-[size:60px_60px] pointer-events-none" />
-            
+
             <div className="relative z-10 w-full flex justify-center">
               <div className="flex flex-col items-start">
-                
-                <motion.h1 
+                <motion.h1
                   initial={{ opacity: 0, x: -500 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ type: "spring", damping: 20, stiffness: 150 }}
@@ -80,14 +79,14 @@ export default function Home() {
                   <span className="block text-[18vw] sm:text-[16vw] md:text-[14vw] xl:text-[165px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 group-hover:drop-shadow-[-6px_6px_0px_#FF0000]">
                     LIMITLESS
                   </span>
-                  
+
                   <span className="block text-[18vw] sm:text-[16vw] md:text-[14vw] xl:text-[165px] font-extrabold tracking-[-0.04em] text-transparent bg-gradient-to-r from-[#f2f2f2] via-[#ff5a5a] to-[#ff0000] bg-clip-text transition-all duration-300 group-hover:drop-shadow-[-6px_6px_0px_#FF0000]">
                     ENGINEER
                   </span>
                 </motion.h1>
 
                 {/* TAGLINE */}
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
@@ -102,13 +101,11 @@ export default function Home() {
           {/* 2. ABOUT SECTION */}
           <section id="about" className="py-24 px-6 bg-transparent">
             <div className="max-w-7xl mx-auto text-center">
-
               {/* Section Title */}
               <h2 className="text-5xl font-bold mb-6 tracking-tight text-white">
                 About MU-IIW Student Chapter
               </h2>
 
-              {/* Client Requested Line */}
               <p className="text-sm md:text-base text-gray-400 font-medium tracking-wide max-w-4xl mx-auto mb-14">
                 Department of Mechanical Engineering, Marwadi University
               </p>
@@ -119,27 +116,27 @@ export default function Home() {
                   {
                     title: "Our Mission",
                     desc: "Empowering students with technical mastery and industry skills.",
-                    icon: <Target className="w-9 h-9 text-black" />
+                    icon: <Target className="w-9 h-9 text-black" />,
                   },
                   {
                     title: "Our Vision",
                     desc: "To be a global center of excellence for engineering leadership.",
-                    icon: <Eye className="w-9 h-9 text-black" />
+                    icon: <Eye className="w-9 h-9 text-black" />,
                   },
                   {
                     title: "Our Values",
                     desc: "Excellence, innovation, sustainability, and integrity.",
-                    icon: <ShieldCheck className="w-9 h-9 text-black" />
+                    icon: <ShieldCheck className="w-9 h-9 text-black" />,
                   },
                   {
                     title: "Our Community",
                     desc: "A vibrant group of dreamers and doers united by innovation.",
-                    icon: <Users className="w-9 h-9 text-black" />
+                    icon: <Users className="w-9 h-9 text-black" />,
                   },
                   {
                     title: "Our Events",
                     desc: "Workshops, Expert Talks and Industrial Visits that turn ideas into impact.",
-                    icon: <Calendar className="w-9 h-9 text-black" />
+                    icon: <Calendar className="w-9 h-9 text-black" />,
                   },
                 ].map((item, index) => (
                   <motion.div
@@ -164,20 +161,19 @@ export default function Home() {
                   </motion.div>
                 ))}
               </div>
-
             </div>
           </section>
 
           {/* 3. EVENTS SECTION */}
           <section id="events" className="scroll-mt-28">
-             <Events />
+            <Events />
           </section>
 
           {/* 4. CORE TEAM SECTION */}
           <TeamSection />
 
           {/* 5.  GLIMPSES */}
-          <Glimpse />   
+          <Glimpse />
 
           {/* 6. ACHIEVEMENT SECTION */}
           <Achievements />
@@ -186,8 +182,7 @@ export default function Home() {
           <Contact />
 
           {/* 8. FOOTER */}
-          <Footer />        
-
+          <Footer />
         </div>
       </div>
     </div>

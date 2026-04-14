@@ -9,27 +9,29 @@ const Navbar = () => {
   const { scrollY } = useScroll();
 
   const maxWidth = useTransform(scrollY, [0, 150], ["1100px", "950px"]);
-  const backdropBlur = useTransform(scrollY, [0, 150], ["blur(14px)", "blur(20px)"]);
+  const backdropBlur = useTransform(
+    scrollY,
+    [0, 150],
+    ["blur(14px)", "blur(20px)"],
+  );
   const y = useTransform(scrollY, [0, 150], [0, -6]);
 
   const handleScroll = (
-  e: React.MouseEvent<HTMLAnchorElement>,
-  targetId: string
-) => {
-  e.preventDefault();
-  const elem = document.getElementById(targetId);
-  if (elem) {
-    // This tells the browser to just go to the element
-    // It will now respect the 'scroll-mt-28' you added to the sections!
-    elem.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-};
+    e: React.MouseEvent<HTMLAnchorElement>,
+    targetId: string,
+  ) => {
+    e.preventDefault();
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      elem.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
-<div className="fixed top-6 left-0 right-0 z-[100] flex justify-center px-4">
+    <div className="fixed top-6 left-0 right-0 z-[100] flex justify-center px-4">
       <motion.nav
         style={{
           maxWidth,

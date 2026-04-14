@@ -12,7 +12,7 @@ type TeamMember = {
   role: string;
   linkedin: string;
   image: string;
-  memberId?: string; // The '?' makes this completely optional
+  memberId?: string;
 };
 
 // 1. DATA OBJECT
@@ -47,7 +47,7 @@ const teamData: Record<string, TeamMember[]> = {
     {
       name: "Akash Verma",
       role: "President",
-      memberId: "BAR/ST/R-14729", 
+      memberId: "BAR/ST/R-14729",
       linkedin: "https://www.linkedin.com/in/akash-verma-b90537346/",
       image: "/team/lead1.jpg",
     },
@@ -63,8 +63,9 @@ const teamData: Record<string, TeamMember[]> = {
     {
       name: "Aditya Prakash Yallamelli",
       role: "Technical",
-      memberId: "BAR/ST/R-15303", 
-      linkedin: "https://www.linkedin.com/in/adithya-prakash-yallamelli-59b621349",
+      memberId: "BAR/ST/R-15303",
+      linkedin:
+        "https://www.linkedin.com/in/adithya-prakash-yallamelli-59b621349",
       image: "/team/tech1.jpg",
     },
     {
@@ -111,15 +112,17 @@ export default function TeamSection() {
   const [active, setActive] = useState("Faculty Corner");
 
   return (
-    <section id="team" className="scroll-mt-[84px] relative z-10 min-h-screen text-white py-32 overflow-hidden scroll-mt-28">      
+    <section
+      id="team"
+      className="scroll-mt-[84px] relative z-10 min-h-screen text-white py-32 overflow-hidden scroll-mt-28"
+    >
       {/* Background Glow */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
         <div className="w-[600px] h-[600px] bg-purple-600 opacity-20 blur-[120px] rounded-full" />
       </div>
 
       <div className="relative z-10 max-w-[1400px] mx-auto text-center px-4">
-
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
@@ -130,7 +133,7 @@ export default function TeamSection() {
           <div className="h-1 w-24 mx-auto bg-red-600 mt-4" />
         </motion.h2>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
@@ -167,51 +170,48 @@ export default function TeamSection() {
               transition={{ duration: 0.5 }}
               className="flex flex-wrap justify-center gap-6"
             >
-              {(teamData[active] || []).map((member: TeamMember, index: number) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ scale: 1.05 }}
-                  className="relative w-[300px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 transition flex flex-col"
-                >
-                  <div className="overflow-hidden rounded-2xl mb-6 shrink-0">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-[350px] object-cover transition duration-500 hover:scale-110"
-                    />
-                  </div>
+              {(teamData[active] || []).map(
+                (member: TeamMember, index: number) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ scale: 1.05 }}
+                    className="relative w-[300px] bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 transition flex flex-col"
+                  >
+                    <div className="overflow-hidden rounded-2xl mb-6 shrink-0">
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-[350px] object-cover transition duration-500 hover:scale-110"
+                      />
+                    </div>
 
-                  <h3 className="text-xl font-semibold">
-                    {member.name}
-                  </h3>
+                    <h3 className="text-xl font-semibold">{member.name}</h3>
 
-                  <p className="text-gray-400 mb-1">
-                    {member.role}
-                  </p>
+                    <p className="text-gray-400 mb-1">{member.role}</p>
 
-                  {/* Conditional Member ID Block */}
-                  {member.memberId && (
-                    <p className="text-xs text-red-500/80 font-mono tracking-wider mb-4">
-                      {member.memberId}
-                    </p>
-                  )}
+                    {/* Conditional Member ID Block */}
+                    {member.memberId && (
+                      <p className="text-xs text-red-500/80 font-mono tracking-wider mb-4">
+                        {member.memberId}
+                      </p>
+                    )}
 
-                  <div className="mt-auto flex justify-center gap-6 text-xl pt-2">
-                    <a 
-                      href={member.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="hover:text-blue-400 transition-colors duration-300"
-                    >
-                      <FaLinkedin className="cursor-pointer" />
-                    </a>
-                  </div>
-                </motion.div>
-              ))}
+                    <div className="mt-auto flex justify-center gap-6 text-xl pt-2">
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-blue-400 transition-colors duration-300"
+                      >
+                        <FaLinkedin className="cursor-pointer" />
+                      </a>
+                    </div>
+                  </motion.div>
+                ),
+              )}
             </motion.div>
           </AnimatePresence>
         </motion.div>
-
       </div>
     </section>
   );

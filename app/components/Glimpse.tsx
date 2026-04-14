@@ -5,6 +5,24 @@ import { useState } from "react";
 
 const glimpses = [
   {
+    title: "Hands-on workshop on 3D Printing and Modeling",
+    image: "/glimpse/jan.jpeg",
+    date: "31ST JANUARY 2026",
+    year: "2026",
+  },
+  {
+    title: "Industrial Visit to Anup Engineering – Kheda Plant",
+    image: "/glimpse/feb.jpeg",
+    date: "3RD FEBRUARY 2026",
+    year: "2026",
+  },
+  {
+    title: "MS WORD and AI Workshop",
+    image: "/glimpse/march.jpeg",
+    date: "MARCH 2026",
+    year: "2026",
+  },
+  {
     title: "One-Day workshop on FSW at PDEU",
     image: "/glimpse/glimpse1.png",
     date: "JANUARY 2025",
@@ -183,7 +201,18 @@ const glimpses = [
 export default function Glimpse() {
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const categories = ["All", "2026", "2025", "2024", "2023", "2022", "2019", "2018", "2017", "2016"];
+  const categories = [
+    "All",
+    "2026",
+    "2025",
+    "2024",
+    "2023",
+    "2022",
+    "2019",
+    "2018",
+    "2017",
+    "2016",
+  ];
 
   const filteredGlimpses =
     activeCategory === "All"
@@ -193,7 +222,6 @@ export default function Glimpse() {
   return (
     <section id="glimpses" className="py-24 px-6 bg-transparent">
       <div className="max-w-7xl mx-auto text-center">
-
         <h2 className="text-5xl font-bold text-white mb-6">
           Event Glimpse
           <div className="h-1 w-24 mx-auto bg-red-600 mt-4" />
@@ -222,24 +250,20 @@ export default function Glimpse() {
         </div>
 
         {/* HORIZONTAL SLIDING CARDS FOR ALL CATEGORIES */}
-{/* HORIZONTAL SLIDING CARDS FOR ALL CATEGORIES */}
-
-        {/* 1. Changed to w-full so it doesn't break the page width */}
-        <div 
-  className={`flex w-full gap-8 overflow-x-auto pb-8 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
-    ["All", "2025", "2024"].includes(activeCategory) 
-      ? "justify-start" 
-      : "justify-center"
-  }`}
->
-  {filteredGlimpses.map((item, index) => (
-    <motion.div
-      key={index}
+        <div
+          className={`flex w-full gap-8 overflow-x-auto pb-8 px-4 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden ${
+            ["All", "2025", "2024"].includes(activeCategory)
+              ? "justify-start"
+              : "justify-center"
+          }`}
+        >
+          {filteredGlimpses.map((item, index) => (
+            <motion.div
+              key={index}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              /* 2. Kept shrink-0 so the cards don't squish, and they stay 280px */
               className="w-[280px] shrink-0 bg-white/5 backdrop-blur-md rounded-3xl overflow-hidden border border-white/10 hover:scale-105 transition"
             >
               <img
@@ -260,7 +284,6 @@ export default function Glimpse() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );
